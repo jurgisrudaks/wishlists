@@ -1,0 +1,71 @@
+.pic
+{
+     margin-top:100px; 
+     width:120px;
+     height:120px;
+     /*margin-left:20px;*/
+     margin-bottom:15px;
+}
+
+.cover
+{
+margin: 0 auto;
+width: 100%;
+position: relative;
+min-height: 100%;
+background-size: cover;
+background-position: 50% 0;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+.name
+{
+    position:absolute;
+    bottom: 5px;
+    left: 145px;
+    color: #fff;
+}
+
+.name h1 {
+    font-size: 30px;
+}
+
+.change
+{
+     position:absolute; 
+     top: 15px;
+     right: 15px;
+     padding:2px 5px;
+     color:white;
+     text-decoration:none;
+}
+
+.jumbotron {
+	background: #358CCE;
+	color: #FFF;
+	border-radius: 0px;
+}
+.jumbotron-sm {
+	padding-top: 7px;
+	padding-bottom: 15px;
+}
+.jumbotron small {
+	color: #FFF;
+}
+.name .trigger {
+	font-size: 24px;
+}
+
+.jumbotron .h1 {
+	font-size: 40px;
+}
+
+#editWishlistImgBtn {
+    position: absolute;
+    margin: 5px;
+}
+
+.popover {
+    width: 600px;
+}

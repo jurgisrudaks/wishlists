@@ -1,0 +1,24 @@
+<?php
+
+class BaseController extends Controller {
+
+	public function __construct()
+	{
+	    // Izpildit 'csrf' filtru visos post, put, patch vaicajumos.
+	    $this->beforeFilter('csrf', ['on' => ['post', 'put', 'patch']]);
+	}
+
+	/**
+	 * Setup the layout used by the controller.
+	 *
+	 * @return void
+	 */
+	protected function setupLayout()
+	{
+		if ( ! is_null($this->layout))
+		{
+			$this->layout = View::make($this->layout);
+		}
+	}
+
+}
