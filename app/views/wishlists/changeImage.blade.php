@@ -1,5 +1,5 @@
 <div class="modal-header">
-	<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+	{{ Form::button('x', array('class'=>"close", 'data-dismiss'=>"modal", 'aria-hidden'=>"true")) }}
 	<h4 class="modal-title" id="changeCoverModal">Mainīt vēlmju saraksta attēlu</h4>
 </div>
 
@@ -7,11 +7,10 @@
 	<div id="validation-errors" class="alert alert-danger" style="display: none"></div>
 	<div id="success" class="alert alert-success" style="display: none"></div>
 	{{ Form::open(array('id' => 'changeWishlistImage', 'class' => 'dropzone', 'method' => 'put','files' => true)) }}
-	<input type="hidden" name="_method" value="PUT" />
 </div>
 <div class="modal-footer">
-		<button type="button" data-dismiss="modal" class="btn btn-default">Atcelt</button>
-		<button id="loadingButton" type="submit" data-loading-text="Maina..." class="btn btn-primary">Mainīt</button>
+		{{ Form::button('Atcelt', array('data-dismiss'=>"modal", 'class'=>"btn btn-default")) }}
+		{{ Form::button('Mainīt', array('type'=>"submit", 'id'=>"loadingButton", 'data-loading-text'=>"Maina...", 'class'=>"btn btn-primary")) }}
 	{{ Form::close() }}
 </div>
 

@@ -118,6 +118,12 @@ return array(
 		'link' => array(
 			'url' => 'Ievadīta nederīga saite',
 		),
+		'url' => array(
+			'required' => 'Aizmirsi norādīt sev vēlamo saiti?',
+			'unique' => 'Kāds jau ir pasteidzies un šo saiti aizņēmis.',
+			'between' => 'Saitei jāsatur vismaz 5 simbolus un nedrīkst pārsniegt 20.',
+			'alpha_num' => 'Saitē var būt tikai burti un cipari.',
+		),
 
 	),
 

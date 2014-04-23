@@ -1,5 +1,5 @@
 <div class="modal-header">
-	<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+	{{ Form::button('x', array('class'=>"close", 'data-dismiss'=>"modal", 'aria-hidden'=>"true")) }}
 	<h4 class="modal-title" id="resetPasswordModal">Paroles atjaunošana</h4>
 </div>
 {{ Form::open(array('id' => 'resetPasswordForm', 'class' => 'form-horizontal', 'role' => 'form')) }}
@@ -12,7 +12,8 @@
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<div class="pull-right">
-					<button type="button" data-dismiss="modal" class="btn btn-default">Atcelt</button>
+					{{ Form::button('Atcelt', array('data-dismiss'=>"modal", 'class'=>"btn btn-default")) }}
+					{{ Form::button('Atjaunot paroli', array('type'=>"submit", 'id'=>"loadingButton", 'data-loading-text'=>"Apstrādā...", 'class'=>"btn btn-primary")) }}
 					<button id="loadingButton" type="submit" data-loading-text="Apstrādā..." class="btn btn-primary">Atjaunot paroli</button>
 				</div>
 			</div>

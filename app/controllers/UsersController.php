@@ -400,4 +400,41 @@ class UsersController extends BaseController {
 	public function changeProfilePic() {
 		return View::make('users.changeProfilePic');
 	}
+
+	// profile saites formas attelsoana
+	public function showChangeUrl() {
+		$slug = Sentry::getUser()->slug;
+		return View::make('users.changeProfileUrl', compact('slug'));
+	}
+
+	// profila saites maina
+	public function changeProfileUrl() {
+		// iegustam lietotaja datus
+		$user = Sentry::getUser();
+		// iegustam ievaditos datus
+		$input = array(
+			'url' => Input::get('url')
+		);
+		// parbaudam ievaditos datus
+		$validator = Validator::make($input, User::$rules);
+		// ja validacijas laika radas kludas
+		if($validator->fails()) {
+			// Un pieprasijums ir AJAX vaicajums
+			if(Request::ajax())
+			{
+				// Atgriezam kludas ar AJAX
+				return Response::json(['success' => false, 'errors' => $validator->getMessageBag()->toArray()]);
+			} else {
+				// Ja nav AJAX atgriezam kludas parastaja veida
+				return Redirect::back()->withInput()->withErrors($validator);
+			}
+		} else {
+		// ja kludas nav konstatetas
+			// uzstadam jauno lietotaja saiti
+			$user->slug = Input::get('url');
+			$user->save();
+			Session::flash('message', 'Profila saite veiksmīgi nomainīta!'); 
+			return Response::json(['success' => true, 'newUrl' => 'http://esvelos.lv/' . $user->slug], 200);
+		}
+	}
 }

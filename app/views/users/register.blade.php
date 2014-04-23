@@ -47,9 +47,13 @@
 @stop
 
 @section('scripts')
+	{{ HTML::script('js/validator.js') }}
 	<script type="text/javascript">
 		$(document).ready(function() {
 			ajaxForm('registerForm', '/user', 'POST', false);
+			$('body').on('hidden.bs.modal', '.modal', function () {
+	            $(this).removeData('bs.modal');
+	        });
 		});
 	</script>
 @stop

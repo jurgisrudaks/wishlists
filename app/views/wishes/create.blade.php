@@ -1,5 +1,5 @@
 <div class="modal-header">
-	<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+	{{ Form::button('x', array('class'=>"close", 'data-dismiss'=>"modal", 'aria-hidden'=>"true")) }}
 	<h4 class="modal-title" id="createWishModal">Pievienot jaunu vēlmi</h4>
 </div>
 
@@ -7,23 +7,23 @@
 	<div class="modal-body">
 		<div id="validation-errors" class="alert alert-danger" style="display: none"></div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="textinput">Nosaukums</label>
+		{{ Form::label('title', 'Nosaukums', array('class'=>"col-sm-2 control-label")) }}
 			<div class="col-sm-10">
-				<input type="hidden" name="wishlistId" value="{{ $wishlistId }}">
-				<input id="title" type="text" placeholder="Jauns auto" class="form-control" name="title">
+				{{ Form::hidden('wishlistId', $wishlistId) }}
+				{{ Form::text('title', null, array('class'=>"form-control", 'placeholder'=>"Jauns auto", 'required'=>"required")) }}
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="textinput">Apraksts</label>
+			{{ Form::label('description', 'Apraksts', array('class'=>"col-sm-2 control-label")) }}
 			<div class="col-sm-10">
-				<textarea id="description" class="form-control" placeholder="Jauns, ātrs sporta auto sarkanā krāsā..." name="description"></textarea>
+				{{ Form::textarea('description', null, array('class'=>"form-control", 'placeholder'=>"Jauns, ātrs sporta auto sarkanā krāsā...", 'required'=>'required')) }}	
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="textinput">Saite</label>
+			{{ Form::label('link', 'Saite', array('class'=>"col-sm-2 control-label")) }}
 			<div class="col-sm-10">
-				<input id="link" type="text" placeholder="Saite, kur iegūt plašāku informāciju" class="form-control" name="link">
+				{{ Form::text('link', null, array('class'=>"form-control", 'placeholder'=>"Saite, kur iegūt plašāku informāciju")) }}
 			</div>
 		</div>
 	</div>
@@ -31,8 +31,8 @@
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<div class="pull-right">
-					<button type="button" data-dismiss="modal" class="btn btn-default">Atcelt</button>
-					<button id="loadingButton" type="submit" data-loading-text="Pievieno..." class="btn btn-primary">Saglabāt</button>
+					{{ Form::button('Atcelt', array('data-dismiss'=>"modal", 'class'=>"btn btn-default")) }}
+					{{ Form::button('Pievienot', array('type'=>"submit", 'id'=>"loadingButton", 'data-loading-text'=>"Pievieno...", 'class'=>"btn btn-primary")) }}
 				</div>
 			</div>
 		</div>

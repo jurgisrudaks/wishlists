@@ -15,8 +15,8 @@
 		<div class="col-md-12">
 			@if(Session::has('message'))
 				<div id="success-message" class="alert alert-success alert-dismissable">
-				  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				  {{ Session::get('message') }}
+					{{ Form::button('&times;', array('class'=>"close", 'data-dismiss'=>"alert", 'aria-hidden'=>"true")) }}
+					{{ Session::get('message') }}
 				</div>
 			@endif
 			<div id="validation-errors" class="alert alert-danger" style="display: none"></div>
@@ -29,35 +29,35 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-									<label for="first_name">Vārds</label>
+									{{ Form::label('first_name', 'Vārds') }}
 									<div class="input-group">
 										<span class="input-group-addon">
 											<span class="glyphicon glyphicon-user"></span>
 										</span>
-										<input name="first_name" type="text" class="form-control" id="first_name" value="{{ $user->first_name }}" required="required" />
+										{{ Form::text('first_name', $user->first_name, array('class'=>"form-control", 'required'=>"required")) }}
 									</div>
 								</div> <!-- form-group -->
 								<div class="form-group">
-									<label for="name">Uzvārds</label>
+									{{ Form::label('name', 'Uzvārds') }}
 									<div class="input-group">
 										<span class="input-group-addon">
 											<span class="glyphicon glyphicon-user"></span>
 										</span>
-										<input name="last_name" type="text" class="form-control" id="last_name" value="{{ $user->last_name }}" required="required" />
+										{{ Form::text('last_name', $user->last_name, array('class'=>"form-control", 'required'=>"required")) }}
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="email">E-pasts</label>
+									{{ Form::label('email', 'E-pasts') }}
 									<div class="input-group">
 										<span class="input-group-addon">
 											<span class="glyphicon glyphicon-envelope"></span>
 										</span>
-										<input name="email" type="email" class="form-control" id="email" value="{{ $user->email }}" required="required" />
+										{{ Form::email('email', $user->email, array('class'=>"form-control", 'required'=>"required")) }}
 									</div>
 								</div>
 							<div class="actions pull-right">
 								<a id="changeprofilePicture" class="btn btn-primary" data-toggle="modal" data-target="#changeProfileImageModal" href="/changeProfilePicture" title="Mainīt bildi"><span class="glyphicon glyphicon-picture"></span> Mainīt profila bildi</a>
-								<button type="submit" class="btn btn-primary" id="btnContactUs">Saglabāt</button>
+								{{ Form::button('Saglabāt', array('type'=>"submit", 'class'=>"btn btn-primary", 'id'=>"btnContactUs")) }}
 							</div>
 							</div> <!-- col-md-12 -->
 						</div> <!-- row -->
@@ -72,30 +72,30 @@
 					{{ Form::open(array('id' => 'changePassword')) }}
 						<div class="col-md-12">
 							<div class="form-group">
-								<label for="first_name">Pašreizējā parole</label>
+								{{ Form::label('old_password', 'Pašreizējā parole') }}
 								<div class="input-group">
 									<span class="input-group-addon">
 										<span class="glyphicon glyphicon-lock"></span>
 									</span>
-									<input type="password" class="form-control" name="old_password" placeholder="Pašreizējā parole" required="required" />
+									{{ Form::password('old_password', array('class'=>"form-control", 'placeholder'=>"Pašreizējā parole",'required'=>"required")) }}
 								</div>
 							</div> 
 							<div class="form-group">
-								<label for="name">Jaunā parole</label>
+								{{ Form::label('password', 'Jaunā parole') }}
 								<div class="input-group">
 									<span class="input-group-addon">
 										<span class="glyphicon glyphicon-lock"></span>
 									</span>
-									<input type="password" class="form-control" name="password" placeholder="Jaunā parole" required="required" />
+									{{ Form::password('password', array('class'=>"form-control", 'placeholder'=>"Jaunā parole",'required'=>"required")) }}
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="email">Jaunā parole vēlreiz </label>
+								{{ Form::label('password_confirmation', 'aunā parole vēlreiz') }}
 								<div class="input-group">
 									<span class="input-group-addon">
 										<span class="glyphicon glyphicon-lock"></span>
 									</span>
-									<input type="password" class="form-control" name="password_confirmation" placeholder="Jaunā parole vēlreiz" required="required" />
+									{{ Form::password('password_confirmation', array('class'=>"form-control", 'placeholder'=>"Jaunā parole vēlreiz",'required'=>"required")) }}
 								</div>
 							</div>
 							<button type="submit" class="btn btn-primary pull-right" id="btnContactUs">Saglabāt</button>

@@ -7,16 +7,16 @@
 	<div class="modal-body">
 		<div id="validation-errors" class="alert alert-danger" style="display: none"></div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="textinput">Nosaukums</label>
+			{{ Form::label('title', 'Nosaukums', array('class'=>"col-sm-2 control-label")) }}
 			<div class="col-sm-10">
-				<input id="title" type="text" value="{{ $wishlist->title }}" class="form-control" name="title">
+				{{ Form::text('title', $wishlist->title, array('class'=>"form-control", 'placeholder'=>"Mans foršais vēlmju saraksts", 'required'=>"required")) }}
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="textinput">Apraksts</label>
+			{{ Form::label('description', 'Apraksts', array('class'=>"col-sm-2 control-label")) }}
 			<div class="col-sm-10">
-				<textarea id="description" class="form-control" name="description">{{ $wishlist->description }}</textarea>
+			{{ Form::textarea('description', $wishlist->description, array('class'=>"form-control", 'placeholder'=>"Mans foršais vēlmju saraksta apraksts", 'required'=>'required')) }}
 			</div>
 		</div>
 	</div>
@@ -24,7 +24,7 @@
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<div class="pull-right">
-					<button type="button" data-dismiss="modal" class="btn btn-default">Atcelt</button>
+					{{ Form::button('Atcelt', array('data-dismiss'=>"modal", 'class'=>"btn btn-default")) }}
 					<button id="loadingButton" type="submit" data-loading-text="Saglabā..." class="btn btn-primary">Saglabāt</button>
 				</div>
 			</div>

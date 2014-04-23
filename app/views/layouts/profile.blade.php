@@ -48,10 +48,10 @@
                         <li><a href="/register">Reģistrēties</a>
                         </li>
                     @else
-                        <li><a href="/{{ $profile->slug }}">Mani saraksti</a>
+                        <li><a href="/{{ $user->slug }}">Mani saraksti</a>
                         </li>  
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $user->first_name }} {{ $user->last_name }} <b class="caret"></b></a>
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">{{ $user->first_name }} {{ $user->last_name }} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/settings">Uzstādījumi</a></li>
                                 <li class="divider"></li>
@@ -77,12 +77,13 @@
                         <img class="pic img-circle" src="{{ Image::resize($profile->photo, 120, 120, true) }}" alt="...">
                     @else
                         <img class="pic img-circle" src="http://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/twDq00QDud4/s120-c/photo.jpg" alt="...">
+                        }
                     @endif
                     <div class="name">
                     @if ($loggedIn && ($user->slug == $profile->slug))
                         <h1>{{ $user->first_name . ' ' . $user->last_name }}
                         <span class="share">
-                            <a href="#" class="trigger"><span id="shareBtn" title="Kopīgot" class="glyphicon glyphicon-link"></span></a>
+                            <a href="javascript:void(0);" class="trigger"><span id="shareBtn" title="Kopīgot" class="glyphicon glyphicon-link"></span></a>
                             <div class="head hide">
                                 Dalies ar profila saiti
                                 <a href="javascript:void(0);" class="pull-right" onclick="$('.share > .trigger').popover(&quot;hide&quot;);">&times;</a>
@@ -91,7 +92,10 @@
                                 <a href="javascript:void(0);" data-toggle=""></a>
                                 <center>
                                     Tava publiskā profila saite:
-                                    <input id="profileURL" onClick="this.select();" class="form-control" type="text" style="cursor: pointer;" value="http://esvelos.lv/{{ $profile->slug }}" readonly>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><a id="changeUrlBtn" data-toggle="modal" data-target="#changeUrlModal" href="/changeUrl" title="Mainīt profila saiti"><span class="glyphicon glyphicon-edit"></span></a></span>
+                                        <input id="profileURL" onClick="this.select();" class="form-control" type="text" style="cursor: pointer;" value="http://esvelos.lv/{{ $profile->slug }}" readonly>
+                                    </div>
                                     <br/>
                                     <a href="javascript:void(0);" onclick="tweet('http://esvelos.lv/{{ $profile->slug }}','Apskati manus vēlmju sarakstus')" class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
                                     <a href="javascript:void(0);" onclick="postToFb('http://esvelos.lv/{{ $profile->slug }}')" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
@@ -122,6 +126,14 @@
         </div>
     </div>
 
+    <!-- Change Profile URL Modal -->
+    <div class="modal fade" id="changeUrlModal" tabindex="-1" role="dialog" aria-labelledby="changeUrlModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+
     <!-- Change Cover Modal -->
     <div class="modal modal-static fade" id="processingImage" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
@@ -138,46 +150,12 @@
 
     {{ HTML::script('js/jquery-1.11.0.min.js') }}
     {{ HTML::script('js/bootstrap.min.js') }}
+    {{ HTML::script('js/init.js') }}
     {{ HTML::script('js/validator.js') }}
-    {{ HTML::script('js/delete.js') }}
-    {{ HTML::script('js/social-share.js') }}
     {{ HTML::script('js/dropzone.js') }}
 
     @yield('scripts')
 
-    <script type="text/javascript">       
-        $(document).ready(function() {
-            $('#shareBtn').tooltip();
-            $('.share > .trigger').popover({
-                html : true,
-                title: function() {
-                  return $(this).parent().find('.head').html();
-                },
-                content: function() {
-                  return $(this).parent().find('.content').html();
-                },
-                container: 'body',
-                placement: 'top'
-            });
-
-            $('.share > .trigger').click(function(){
-                $('.share > .trigger').not(this).popover('hide');
-            });
-            
-            $('body').on('hidden.bs.modal', '.modal', function () {
-                $(this).removeData('bs.modal');
-            });
-
-            $('div.cover').each(function(){
-                var $obj = $(this);
-                $(window).scroll(function() {
-                    var yPos = -($(window).scrollTop() / $obj.data('speed'));
-                    var bgpos = '50% '+ yPos + 'px';
-                    $obj.css('background-position', bgpos );
-                });
-            });
-        });
-    </script>
 </div>
 </body>
 

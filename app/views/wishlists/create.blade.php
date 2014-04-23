@@ -1,5 +1,5 @@
 <div class="modal-header">
-	<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+	{{ Form::button('x', array('class'=>"close", 'data-dismiss'=>"modal", 'aria-hidden'=>"true")) }}
 	<h4 class="modal-title" id="addWishlistModal">Pievienot jaunu sarakstu</h4>
 </div>
 
@@ -7,16 +7,16 @@
 	<div class="modal-body">
 		<div id="validation-errors" class="alert alert-danger" style="display: none"></div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="textinput">Nosaukums</label>
+			{{ Form::label('title', 'Nosaukums', array('class'=>"col-sm-2 control-label")) }}
 			<div class="col-sm-10">
-				<input id="title" type="text" placeholder="Mans foršais vēlmju saraksts" class="form-control" name="title">
+				{{ Form::text('title', null, array('class'=>"form-control", 'placeholder'=>"Mans foršais vēlmju saraksts", 'required'=>"required")) }}
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="textinput">Apraksts</label>
+			{{ Form::label('description', 'Apraksts', array('class'=>"col-sm-2 control-label")) }}
 			<div class="col-sm-10">
-				<textarea id="description" placeholder="Mans foršais vēlmju saraksta apraksts" class="form-control" name="description"></textarea>
+				{{ Form::textarea('description', null, array('class'=>"form-control", 'placeholder'=>"Mans foršais vēlmju saraksta apraksts", 'required'=>'required')) }}
 			</div>
 		</div>
 	</div>
@@ -24,8 +24,8 @@
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<div class="pull-right">
-					<button type="button" data-dismiss="modal" class="btn btn-default">Atcelt</button>
-					<button id="loadingButton" type="submit" data-loading-text="Pievieno..." class="btn btn-primary">Pievienot</button>
+					{{ Form::button('Atcelt', array('data-dismiss'=>"modal", 'class'=>"btn btn-default")) }}
+					{{ Form::button('Pievienot', array('type'=>"submit", 'id'=>"loadingButton", 'data-loading-text'=>"Pievieno...", 'class'=>"btn btn-primary")) }}
 				</div>
 			</div>
 		</div>

@@ -34,7 +34,7 @@
                     <p class="lead">Ātri un ērti izveido tematiskus vēlmju sarakstus, personalizējot tos, ar kādu tēmai atbilstošu attēlu. Pēc tam ērti sarakstiem pievieno, ko tu kāro.</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/saraksti.png" alt="">
+                   {{ HTML::image('/img/saraksti.png', null, array('class' => 'img-responsive')) }} 
                 </div>
             </div>
 
@@ -57,7 +57,7 @@
                     <p class="lead">Ļauj citiem uzzināt, ko tu kāro un publicē sociālajos tīklos saites uz savu profilu un vēlmju sarakstiem. Un varbūt kāds tās piepildīs ;)</p>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <img class="img-responsive" src="img/dalies.png" alt="">
+                    {{ HTML::image('/img/dalies.png', null, array('class' => 'img-responsive')) }} 
                 </div>
             </div>
 
@@ -80,7 +80,7 @@
                     <p class="lead">Ārā labs laiks un nevēlies sēdēt pie datora? Nekas <a href="http://fontawesome.io">es.vēlos</a> ir vienmēr tavā kabatā. <a href="http://fontawesome.io">es.vēlos</a> darbojas visās modernajās mobīlajās ierīcēs, padarot to pieejamu, lai kur vien tu atrastos.</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/mobils.png" alt="">
+                    {{ HTML::image('/img/mobils.png', null, array('class' => 'img-responsive')) }} 
                 </div>
             </div>
 

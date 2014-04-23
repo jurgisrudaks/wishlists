@@ -1,5 +1,5 @@
 <div class="modal-header">
-	<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+	{{ Form::button('x', array('class'=>"close", 'data-dismiss'=>"modal", 'aria-hidden'=>"true")) }}
 	<h4 class="modal-title" id="changeProfileImageModal">Mainīt vāka attēlu</h4>
 </div>
 
@@ -9,8 +9,8 @@
 	{{ Form::open(array('id' => 'changeCover', 'class' => 'dropzone','files' => true)) }}
 </div>
 <div class="modal-footer">
-		{{ Form::button('Atcelt', array('type'=>"button", 'data-dismiss'=>"modal", 'class'=>"btn btn-default")) }}
-		{{ Form::button('Mainīt', array('type'=>"submit", 'id'=>"coverImageSubmit", 'data-loading-text'=>"Maina...", 'class'=>"btn btn-primary changeImageSubmit")) }}
+		{{ Form::button('Atcelt', array('data-dismiss'=>"modal", 'class'=>"btn btn-default")) }}
+		{{ Form::button('Mainīt', array('type'=>"submit", 'id'=>"coverImageSubmit", 'data-loading-text'=>"Maina...", 'class'=>"btn btn-primary")) }}
 	{{ Form::close() }}
 </div>
 

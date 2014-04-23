@@ -40,7 +40,11 @@ function ajaxForm(formId, url, type, button, errorDiv) {
 					}
 					$(errorDiv).show();
 				} else {
-					location.reload();
+					if(data.newUrl) {
+						window.location.replace(data.newUrl);
+					} else {
+						location.reload();
+					}
 				}
 			},
 			error: function(xhr, textStatus, thrownError) {

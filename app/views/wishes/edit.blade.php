@@ -7,24 +7,24 @@
 	<div class="modal-body">
 		<div id="validation-errors" class="alert alert-danger" style="display: none"></div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="textinput">Nosaukums</label>
+			{{ Form::label('title', 'Nosaukums', array('class'=>"col-sm-2 control-label")) }}
 			<div class="col-sm-10">
-				<input type="hidden" name="wishlistId" value="{{ $wish->wishlist_id }}">
-				<input id="title" type="text" value="{{ $wish->title }}" class="form-control" name="title">
+				{{ Form::hidden('wishlistId', $wish->wishlist_id) }}
+				{{ Form::text('title', $wish->title, array('class'=>"form-control", 'required'=>"required")) }}
 			</div>
 		</div>
 
 		<!-- Text input-->
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="textinput">Apraksts</label>
+			{{ Form::label('description', 'Apraksts', array('class'=>"col-sm-2 control-label")) }}
 			<div class="col-sm-10">
-				<textarea id="description" class="form-control" name="description">{{ $wish->description }}</textarea>
+				{{ Form::textarea('description', $wish->description, array('class'=>"form-control", 'required'=>"required")) }}	
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="textinput">Saite</label>
+			{{ Form::label('link', 'Saite', array('class'=>"col-sm-2 control-label")) }}
 			<div class="col-sm-10">
-				<input id="link" type="text" value="{{ $wish->link }}" class="form-control" name="link">
+				{{ Form::text('link', $wish->link, array('class'=>"form-control", 'placeholder'=>"Saite, kur iegūt plašāku informāciju")) }}
 			</div>
 		</div>
 	</div>
@@ -32,8 +32,8 @@
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<div class="pull-right">
-					<button type="button" data-dismiss="modal" class="btn btn-default">Atcelt</button>
-					<button id="loadingButton" type="submit" data-loading-text="Saglabā..." class="btn btn-primary">Saglabāt</button>
+					{{ Form::button('Atcelt', array('data-dismiss'=>"modal", 'class'=>"btn btn-default")) }}
+					{{ Form::button('Saglabāt', array('type'=>"submit", 'id'=>"loadingButton", 'data-loading-text'=>"Saglabā...", 'class'=>"btn btn-primary")) }}
 				</div>
 			</div>
 		</div>

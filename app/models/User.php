@@ -26,7 +26,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	    'old_password' => 'sometimes|required',
 	    'password'=>'sometimes|required|min:6|confirmed',
 	    'password_confirmation'=>'sometimes|required',
-	    'cover_image' => 'image'
+	    'cover_image' => 'image',
+	    'url' => 'sometimes|required|alpha_num|between:5,20|unique:users,slug'
     );
 
     public static $sluggable = array(

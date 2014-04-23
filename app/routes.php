@@ -30,6 +30,8 @@ Route::get('register', 'UsersController@register');
 Route::get('settings', 'UsersController@settings');
 Route::get('changeCover', 'UsersController@showChangeCover');
 Route::post('changeCover', 'UsersController@changeCover');
+Route::get('changeUrl', 'UsersController@showChangeUrl');
+Route::post('changeUrl', 'UsersController@changeProfileUrl');
 Route::get('reset', 'UsersController@showPasswordReset');
 Route::post('reset', 'UsersController@requestPasswordReset');
 Route::get('a/{activationCode}', 'UsersController@activateUser');

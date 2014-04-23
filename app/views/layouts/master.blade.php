@@ -11,7 +11,6 @@
 
     <!-- Bootstrap core CSS -->
     {{ HTML::style('css/bootstrap.min.css') }}
-    {{ HTML::style('css/jasny-bootstrap.min.css') }}
 
     <!-- Custom Google Web Font -->
     {{ HTML::style('font-awesome/css/font-awesome.min.css') }}
@@ -69,13 +68,7 @@
     <!-- JavaScript -->
     {{ HTML::script('js/jquery-1.11.0.min.js') }}
     {{ HTML::script('js/bootstrap.min.js') }}
-    {{ HTML::script('js/jasny-bootstrap.min.js') }}
-    {{ HTML::script('js/validator.js') }}
-    <script type="text/javascript">
-        $('body').on('hidden.bs.modal', '.modal', function () {
-            $(this).removeData('bs.modal');
-        });
-    </script>
+
     @yield('scripts')
 </div>
 </body>
