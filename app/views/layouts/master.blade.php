@@ -49,7 +49,7 @@
                         </li>
                         
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $user->first_name }} {{ $user->last_name }} <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{{ $user->first_name }}} {{{ $user->last_name }}} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/settings">Uzstādījumi</a></li>
                                 <li class="divider"></li>

@@ -51,7 +51,7 @@
                         <li><a href="/{{ $user->slug }}">Mani saraksti</a>
                         </li>  
                         <li class="dropdown">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">{{ $user->first_name }} {{ $user->last_name }} <b class="caret"></b></a>
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">{{{ $user->first_name }}} {{{ $user->last_name }}} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/settings">Uzstādījumi</a></li>
                                 <li class="divider"></li>
@@ -81,7 +81,7 @@
                     @endif
                     <div class="name">
                     @if ($loggedIn && ($user->slug == $profile->slug))
-                        <h1>{{ $user->first_name . ' ' . $user->last_name }}
+                        <h1>{{{ $user->first_name . ' ' . $user->last_name }}}
                         <span class="share">
                             <a href="javascript:void(0);" class="trigger"><span id="shareBtn" title="Kopīgot" class="glyphicon glyphicon-link"></span></a>
                             <div class="head hide">
@@ -105,7 +105,7 @@
                         </span>
                         </h1>
                     @else
-                        <h1>{{ $profile->first_name . ' ' . $profile->last_name }}</h1>
+                        <h1>{{{ $profile->first_name . ' ' . $profile->last_name }}}</h1>
                     @endif
                     </div>
                     @if ($loggedIn && ($user->slug == $profile->slug))
