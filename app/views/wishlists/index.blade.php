@@ -27,7 +27,7 @@
 	<div class="well well-sm">
 		<div class="row">
 			<div class="col-xs-6 col-sm-9 col-md-10">
-				<strong>Vēlmju saraksti sad a  asda ssd asd</strong> 
+				<strong>Vēlmju saraksti</strong> 
 			</div>
 			<div class="col-xs-6 col-sm-3 col-md-2">
 				@if ($loggedIn && ($user->slug == $profile->slug))
@@ -55,8 +55,8 @@
 					<img class="group list-group-image" src="/img/no_image.jpg" alt="" />
 				@endif
 				<div class="caption">
-					<h4 class="group inner list-group-item-heading">{{ $wishlist->title }}</h4>
-					<p class="group inner list-group-item-text">{{ $wishlist->description }}</p>
+					<h4 class="group inner list-group-item-heading">{{{ $wishlist->title }}}</h4>
+					<p class="group inner list-group-item-text">{{{ $wishlist->description }}}</p>
 					<div class="row">
 						<div class="col-xs-12 col-md-12">
 							<a class="btn btn-success" href="/{{ $profile->slug }}/{{ $wishlist->slug }}">Skatīt</a>
@@ -99,7 +99,7 @@
 @else
 	<center>
 		<h1>Te nekā nav :(</h1>
-		<small>{{ $profile->first_name }} {{ $profile->last_name }} vēl nav izveidojis nevienu vēlmju sarakstu</small>
+		<small>{{{ $profile->first_name }}} {{{ $profile->last_name }}} vēl nav izveidojis nevienu vēlmju sarakstu</small>
 	</center>
 	@endif
 </div>

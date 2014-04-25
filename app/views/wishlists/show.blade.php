@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-sm-12 col-lg-12">
                 <h1 class="h1 pull-right">
-					Vēlmju saraksts <small>/ {{ $wishlist->title }}</small></h1>
+					Vēlmju saraksts <small>/ {{{ $wishlist->title }}}</small></h1>
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@
 	</div>
 	@endif
 	<div class="well well-md">
-		<strong><a href="/{{ $profile->slug }}">Vēlmju saraksts</a> / {{ $wishlist->title }}</strong> 
+		<strong><a href="/{{ $profile->slug }}">Vēlmju saraksts</a> / {{{ $wishlist->title }}}</strong> 
 		@if ($loggedIn && ($user->slug == $profile->slug))
 			<a id="addWishBtn" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addWishModal" href="/wishes/create/{{ $wishlist->id }}" title="Pievienot"><span class="glyphicon glyphicon-plus"></span>Pievienot jaunu</a>
 		@endif
@@ -50,14 +50,14 @@
 					</div>
 					<div class="col-xs-9 col-md-9 section-box">
 						<h2>
-							{{ $wish->title }}
+							{{{ $wish->title }}}
 							@if($wish->link)
 								<a id="wishLinkBtn" title="Saite" href="{{ $wish->link }}" target="_blank"><span class="glyphicon glyphicon-new-window">
 							@endif
 						</span></a>
 					</h2>
 					<p>
-						{{ $wish->description }}</p>
+						{{{ $wish->description }}}</p>
 						<hr />
                         <div class="row rating-desc">
                             <div class="col-md-12">
@@ -85,7 +85,7 @@
 		@else
 			<center>
 				<h1>Te nekā nav :(</h1>
-				<small>{{ $profile->first_name }} {{ $profile->last_name }} vēl nav pievienojis nevienu vēlmi šim srakstam</small>
+				<small>{{{ $profile->first_name }}} {{{ $profile->last_name }}} vēl nav pievienojis nevienu vēlmi šim srakstam</small>
 			</center>
 		@endif
 
